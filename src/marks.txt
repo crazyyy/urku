@@ -1,0 +1,6 @@
+сделать
+1/ главную
+2/ about 
+3/ блог / запись блога
+4/ contact c формой contact form 7
+5/ создать custom post type  для portfolio. portfolio-item - это страница записи типа Portfolio , для вывода списка использовать portfolio.html
