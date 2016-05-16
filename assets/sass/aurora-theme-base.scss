@@ -1,0 +1,157 @@
+/* * * * * * * * * * * * * * * * * * * * *\
+ aurora-themes v1.0.0
+ Themes for Aurora Kit
+ (c) 2015 Lionel T <elrumordelaluz@hotmail.com> (http://elrumordelaluz.com)
+ https://github.com/aurora-kit/aurora-themes.git
+ Licensed under  MIT
+\* * * * * * * * * * * * * * * * * * * * */
+@font-face {
+  font-family: 'Aileron';
+  font-weight: 400;
+  font-style: normal;
+
+  src: url('../fonts/aileron-regular.woff2') format('woff2'), url('../fonts/aileron-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Aileron';
+  font-weight: 500;
+  font-style: normal;
+
+  src: url('../fonts/aileron-semibold.woff2') format('woff2'), url('../fonts/aileron-semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Aileron';
+  font-weight: 700;
+  font-style: normal;
+
+  src: url('../fonts/aileron-bold.woff2') format('woff2'), url('../fonts/aileron-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Aileron';
+  font-weight: 900;
+  font-style: normal;
+
+  src: url('../fonts/aileron-black.woff2') format('woff2'), url('../fonts/aileron-black.woff') format('woff');
+}
+
+body {
+  font-family: 'Aileron', Helvetica, Arial, sans-serif;
+  line-height: 1.556;
+}
+
+a,
+button {
+  -webkit-transition: color .3s;
+          transition: color .3s;
+
+  color: inherit;
+}
+
+a:hover,
+button:hover {
+  color: #a0a0a0;
+}
+
+a:not(.au-underline),
+button:not(.au-underline) {
+  text-decoration: none;
+}
+
+blockquote {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+  padding-left: 0;
+
+  border-left: 0;
+  footer {
+    font-family: 'Aileron', Helvetica, Arial, sans-serif;
+  }
+}
+
+input {
+  &[type='text'],
+  &[type='date'],
+  &[type='datetime'],
+  &[type='datetime-local'],
+  &[type='email'],
+  &[type='month'],
+  &[type='number'],
+  &[type='password'],
+  &[type='search'],
+  &[type='tel'],
+  &[type='time'],
+  &[type='url'],
+  &[type='week'] {
+    font-size: inherit;
+
+    margin-bottom: .5rem;
+    padding: 2.2rem 3rem;
+
+    letter-spacing: .04em;
+
+    border: 0;
+    background: #f6f6f6;
+  }
+}
+
+textarea {
+  font-size: inherit;
+
+  margin-bottom: .5rem;
+  padding: 2.2rem 3rem;
+
+  letter-spacing: .04em;
+
+  border: 0;
+  background: #f6f6f6;
+}
+
+input {
+  &[type='text']:focus,
+  &[type='date']:focus,
+  &[type='datetime']:focus,
+  &[type='datetime-local']:focus,
+  &[type='email']:focus,
+  &[type='month']:focus,
+  &[type='number']:focus,
+  &[type='password']:focus,
+  &[type='search']:focus,
+  &[type='tel']:focus,
+  &[type='time']:focus,
+  &[type='url']:focus,
+  &[type='week']:focus {
+    outline: 0;
+  }
+}
+
+textarea:focus {
+  outline: 0;
+}
+
+button {
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+}
+
+p {
+  margin-bottom: 1.556rem;
+}
+
+h4 {
+  margin-bottom: 2.2rem;
+}
+
+pre {
+  margin-bottom: .5rem;
+}
+
+p.ae-eta {
+  line-height: 1.3749;
+
+  margin-bottom: 2rem;
+}
