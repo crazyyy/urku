@@ -5,5 +5,5 @@
     <h2><a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'wpeasy' ); ?></a></h2>
 
   </article>
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

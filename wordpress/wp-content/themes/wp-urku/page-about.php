@@ -5,25 +5,17 @@
     <div id="post-<?php the_ID(); ?>" <?php post_class('ae-container-fluid ae-container-fluid--inner rk-main'); ?>>
 
       <div class="ae-grid au-xs-ta-center au-mb-4">
-
-        <div class="ae-grid__item item-lg-4 ae-kappa au-mb-3"><img src="img/team-1.jpg" alt="" class="au-mb-3">
-          <h5 class="ae-u-bolder au-mt-2">Robert T. Williams</h5>
-          <p class="ae-u-bolder au-mb-3">Graphic Designer</p>
-          <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p><a href="#0" class="ae-u-bolder au-underline">@robertwilliams</a>
-        </div>
-        <div class="ae-grid__item item-lg-4 ae-kappa au-mb-3"><img src="img/team-2.jpg" alt="" class="au-mb-3">
-          <h5 class="ae-u-bolder au-mt-2">Angelina B. Widow</h5>
-          <p class="ae-u-bolder au-mb-3">Founder / CEO</p>
-          <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p><a href="#0" class="ae-u-bolder au-underline">@angelinawidow</a>
-        </div>
-        <div class="ae-grid__item item-lg-4 ae-kappa au-mb-3"><img src="img/team-3.jpg" alt="" class="au-mb-3">
-          <h5 class="ae-u-bolder au-mt-2">Patrick Anderson</h5>
-          <p class="ae-u-bolder au-mb-3">Art Director</p>
-          <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><a href="#0" class="ae-u-bolder au-underline">@patrickanderson</a>
-        </div>
-
+        <?php if( have_rows('team') ): while ( have_rows('team') ) : the_row(); ?>
+          <div class="ae-grid__item item-lg-4 ae-kappa au-mb-3">
+            <?php $image = get_sub_field('photo'); if( !empty($image) ): ?>
+              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="au-mb-3" />
+            <?php endif; ?>
+            <h5 class="ae-u-bolder au-mt-2"><?php the_sub_field('name'); ?></h5>
+            <p class="ae-u-bolder au-mb-3"><?php the_sub_field('post'); ?></p>
+            <p class="au-lg-ta-left au-mb-3 au-pl-4 au-pr-4"><?php the_sub_field('bio'); ?></p><a href="<?php the_sub_field('link_href'); ?>" class="ae-u-bolder au-underline"><?php the_sub_field('link_title'); ?></a>
+          </div>
+        <?php endwhile; endif; ?>
       </div>
-
 
       <div class="ae-grid au-pt-2">
         <div class="ae-grid__item item-lg-8 item-lg--offset-2">
@@ -31,7 +23,6 @@
           <?php the_content(); ?>
         </div>
       </div>
-
 
       <div class="ae-grid ae-grid--alt au-xs-ptp-1">
         <?php if( have_rows('three_blocks') ): while ( have_rows('three_blocks') ) : the_row(); ?>

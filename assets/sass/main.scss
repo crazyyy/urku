@@ -32,3 +32,12 @@
   @extend .arrow-button;
   @extend .arrow-button--compress;
 }
+.blog-meta__container {
+  a {
+    font-size: 1rem;
+    font-weight: 700;
+
+    text-decoration: none;
+    letter-spacing: .06em;
+  }
+}
