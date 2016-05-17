@@ -1,18 +1,244 @@
 <?php /* Template Name: Front Page */ get_header(); ?>
   <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-      <h1 class="page-title inner-title"><?php the_title(); ?></h1>
-      <?php the_content(); ?>
-      <?php edit_post_link(); ?>
+    <section id="post-<?php the_ID(); ?>" <?php post_class('ae-container-fluid rk-main'); ?>>
+      <input type="radio" name="layout-ctrl" checked id="layout-base" class="layout-ctrl-input">
+      <div class="ae-container-fluid rk-layout-ctrl-cont">
+        <label for="layout-base" class="rk-layout-ctrl">
+          <svg>
+            <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#icon-view-default"></use>
+          </svg>
+        </label>
+      </div>
+      <input type="radio" name="layout-ctrl" id="layout-grid" class="layout-ctrl-input">
+      <div class="ae-container-fluid rk-layout-ctrl-cont">
+        <label for="layout-grid" class="rk-layout-ctrl">
+          <svg>
+            <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#icon-view-alt"></use>
+          </svg>
+        </label>
+      </div>
+      <div class="rk-layout-ctrl-mobile">
+        <svg viewBox="0 0 9 9" class="layout-mob-1">
+          <rect width="100%" height="100%" fill="currentColor"></rect>
+        </svg>
+        <svg viewBox="0 0 9 9" class="layout-mob-2">
+          <rect width="100%" height="100%" fill="currentColor"></rect>
+        </svg>
+        <svg viewBox="0 0 9 9" class="layout-mob-3">
+          <rect width="100%" height="100%" fill="currentColor"></rect>
+        </svg>
+        <svg viewBox="0 0 9 9" class="layout-mob-4">
+          <rect width="100%" height="100%" fill="currentColor"></rect>
+        </svg>
+      </div>
+      <section class="ae-container-fluid ae-container-fluid--inner loading rk-portfolio ">
+        <div class="rk-portfolio__items">
 
-    </article>
-  <?php endwhile; else: // If 404 page error ?>
-    <article>
 
-      <h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
+        <?php if( have_rows('blocks') ): while ( have_rows('blocks') ) : the_row(); ?>
 
-    </article>
-  <?php endif; ?>
-<?php get_sidebar(); ?>
+          <!-- Wide -->
+          <?php $content_type = get_sub_field('blocks_type');
+
+            if ( $content_type == 'Wide') { ?>
+
+              <?php $posts = get_sub_field('item_one'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-1 rk-size-12 rk-tosize-6 rk-landscape" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+            <!-- Two Half -->
+            <?php } else if ( $content_type == 'Two Half') { ?>
+
+              <?php $posts = get_sub_field('item_one'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-2 rk-size-6 rk-portrait" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_two'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-3 rk-size-6 rk-tosize-4 rk-portrait rk-tosquare" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+            <!-- Left Two Right One -->
+            <?php } else if ( $content_type == 'Left Two Right One') { ?>
+
+              <?php $posts = get_sub_field('item_one'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+              <div class="rk-items-cont rk-size-6 rk-tosize-8">
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-4 rk-size-12 rk-tosize-6 rk-landscape" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_two'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                  <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-5 rk-size-12 rk-tosize-6 rk-landscape" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                    <div class="item-meta">
+                      <h2><?php the_title(); ?></h2>
+                      <p><?php the_field('post_subtitle'); ?></p>
+                    </div>
+                  </a>
+                </div>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_three'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-6 rk-size-6 rk-tosize-4 rk-portrait rk-tosquare" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+            <!-- Left Two Small Right One Big -->
+            <?php } else if ( $content_type == 'Left Two Small Right One Big') { ?>
+
+              <?php $posts = get_sub_field('item_one'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+              <div class="rk-items-cont rk-size-4 rk-tosize-8">
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-7 rk-size-12 rk-tosize-6 rk-square" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_two'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                  <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-8 rk-size-12 rk-tosize-6 rk-square" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                    <div class="item-meta">
+                      <h2><?php the_title(); ?></h2>
+                      <p><?php the_field('post_subtitle'); ?></p>
+                    </div>
+                  </a>
+                </div>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_three'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-9 rk-size-8 rk-tosize-3 rk-square" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+            <!-- Left One Right Two -->
+            <?php } else if ( $content_type == 'Left One Right Two') { ?>
+
+              <?php $posts = get_sub_field('item_one'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-10 rk-size-6 rk-tosize-3 rk-portrait rk-tosquare" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta  rk-tosmallfont">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_two'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <div class="rk-items-cont rk-size-6 rk-tosize-6">
+                  <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-11 rk-size-12 rk-tosize-6 rk-landscape rk-tosquare" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                    <div class="item-meta">
+                      <h2><?php the_title(); ?></h2>
+                      <p><?php the_field('post_subtitle'); ?></p>
+                    </div>
+                  </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_three'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                  <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-12 rk-size-12 rk-tosize-6 rk-landscape rk-tosquare" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                    <div class="item-meta">
+                      <h2><?php the_title(); ?></h2>
+                      <p><?php the_field('post_subtitle'); ?></p>
+                    </div>
+                  </a>
+                </div>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+            <!-- Left One Big Tight Two Small -->
+            <?php } else if ( $content_type == 'Left One Big Tight Two Small') { ?>
+
+              <?php $posts = get_sub_field('item_one'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-13 rk-size-8 rk-tosize-3 rk-square " style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                  <div class="item-meta">
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_field('post_subtitle'); ?></p>
+                  </div>
+                </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_two'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                <div class="rk-items-cont rk-size-4 rk-tosize-6">
+                  <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-14 rk-size-12 rk-tosize-6 rk-square" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                    <div class="item-meta">
+                      <h2><?php the_title(); ?></h2>
+                      <p><?php the_field('post_subtitle'); ?></p>
+                    </div>
+                  </a>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+              <?php $posts = get_sub_field('item_three'); if( $posts ): foreach( $posts as $post): setup_postdata($post); ?>
+
+                  <a href="<?php the_permalink(); ?>" class="rk-item rk-item--flex item-15 rk-size-12 rk-tosize-6 rk-square" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>);">
+                    <div class="item-meta">
+                      <h2><?php the_title(); ?></h2>
+                      <p><?php the_field('post_subtitle'); ?></p>
+                    </div>
+                  </a>
+                </div>
+
+              <?php endforeach; wp_reset_postdata(); endif; ?>
+
+            <?php } ?>
+
+          <?php endwhile; endif; ?>
+
+        </div>
+      </section>
+    </section>
+
+  <?php endwhile; endif; ?>
+
 <?php get_footer(); ?>
