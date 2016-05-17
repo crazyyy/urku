@@ -10,7 +10,7 @@
   <link href="http://www.google-analytics.com/" rel="dns-prefetch"><!-- dns prefetch -->
 
   <!-- icons -->
-  <link href="<?php echo get_template_directory_uri(); ?>/favicon.ico" rel="shortcut icon">
+  <link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/img/urku-ico.svg">
 
   <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>
@@ -20,29 +20,42 @@
   <!-- css + javascript -->
   <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
-<!-- wrapper -->
-<div class="wrapper">
-  <header role="banner">
-    <div class="inner">
+<body <?php body_class('top-fixed'); ?>>
 
-      <div class="logo">
+  <header class="ae-container-fluid ae-container-fluid--full rk-header ">
+    <input type="checkbox" id="mobile-menu" class="rk-mobile-menu">
+    <label for="mobile-menu">
+      <svg>
+        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#bar"></use>
+      </svg>
+      <svg>
+        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#bar"></use>
+      </svg>
+      <svg>
+        <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#bar"></use>
+      </svg>
+    </label>
+    <div class="ae-container-fluid rk-topbar">
+      <h1 class="rk-logo">
         <?php if ( is_front_page() && is_home() ){ } else { ?>
           <a href="<?php echo home_url(); ?>">
             <?php  } ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
+            urku portfolio<sup>tm</sup>
             <?php if ( is_front_page() && is_home() ){
             } else { ?>
           </a>
         <?php } ?>
-      </div><!-- /logo -->
-
-      <nav class="nav" role="navigation">
+      </h1>
+      <nav class="rk-navigation">
         <?php wpeHeadNav(); ?>
-      </nav><!-- /nav -->
-
-    </div><!-- /.inner -->
-  </header><!-- /header -->
-
-  <section role="main">
-    <div class="inner">
+        <form class="rk-search" method="get" name="searchform" action="<?php bloginfo('url'); ?>/">
+          <input type="text" placeholder="Search" id="urku-search" class="rk-search-field">
+          <label for="urku-search">
+            <svg>
+              <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#icon-search"></use>
+            </svg>
+          </label>
+        </form>
+      </nav>
+    </div>
+  </header>

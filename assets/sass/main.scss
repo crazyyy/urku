@@ -2,3 +2,20 @@
 @import 'aurora-theme-base';
 @import 'urku';
 @import 'sprite';
+
+/**
+ * add class to li elements on nav menu
+ * this is normal variant, becouse normal is work witk Walker in nav menu
+ * but now i need fast things
+ */
+.rk-menu {
+  li {
+    @extend .rk-menu__item;
+    &.current-post-ancestor {
+      color: #a0a0a0;
+    }
+  }
+  a {
+    @extend .rk-menu__link;
+  }
+}

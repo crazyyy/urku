@@ -8,8 +8,6 @@
 //  Enable styles for WP admin panel
 add_action('admin_enqueue_scripts', 'wpeAdminThemeStyle');
 function wpeAdminThemeStyle() {
-  wp_enqueue_style('wpe-admin-style', get_template_directory_uri() . '/css/admin.css');
-  wp_enqueue_style('wpe-admin-script', get_template_directory_uri() . '/js/admin.js');
   wp_enqueue_style('wpe-admin-style', get_template_directory_uri() . '/css/editor-style.css');
 }
 
@@ -90,7 +88,6 @@ if (function_exists('add_theme_support')) {
   load_theme_textdomain('wpeasy', get_template_directory() . '/languages');
 }
 
-// WPE head navigation
 function wpeHeadNav() {
   wp_nav_menu(
   array(
@@ -107,12 +104,23 @@ function wpeHeadNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="headnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="rk-menu">%3$s</ul>',
     'depth'           => 0,
-    'walker'          => ''
+     'walker'         => new wpeHeadNav_Walker
     )
   );
 }
+class wpeHeadNav_Walker extends Walker_Nav_Menu {
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
+    $indent = str_repeat("\t", $depth);
+    $output .= "\n$indent<nav class='rk-menu__sub'><ul class='rk-container'>\n";
+  }
+  function end_lvl( &$output, $depth = 0, $args = array() ) {
+    $indent = str_repeat("\t", $depth);
+    $output .= "$indent</ul></nav>\n";
+  }
+}
+
 // WPE footer navigation
 function wpeFootNav() {
   wp_nav_menu(
@@ -130,7 +138,7 @@ function wpeFootNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="footernav">%3$s</ul>',
+    'items_wrap'      => '<ul class="rk-menu rk-footer-menu">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -652,11 +660,6 @@ function disable_emojicons_tinymce( $plugins ) {
     return array();
   }
 }
-
-
-
-
-
 
 
 
