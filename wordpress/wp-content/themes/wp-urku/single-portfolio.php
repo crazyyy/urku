@@ -123,13 +123,6 @@
         <?php endwhile; endif; ?>
 
         <div class="ae-grid ae-grid--collapse au-xs-ptp-1">
-          <div class="ae-grid__item item-lg-12 au-xs-ta-center">
-            <p class="ae-theta">Written by <span class="ae-u-bolder"><?php the_author(); ?></span></p>
-            <p class="ae-theta">in <span class="ae-u-bolder"><?php the_category(', '); ?> </span></p>
-          </div>
-        </div>
-
-        <div class="ae-grid ae-grid--collapse au-xs-ptp-1">
           <div class="ae-grid__item item-lg-12"></div>
         </div>
       </div>
@@ -137,14 +130,14 @@
 
   <?php endwhile; endif; ?>
 
-  <?php comments_template(); ?>
+
 
   <section class="ae-container-fluid au-pt-4 au-pb-4">
     <div class="group-buttons au-mt-2">
 
       <?php
-        $prev = mod_get_adjacent_post('prev', array('post'));
-        $next = mod_get_adjacent_post('next', array('post'));
+        $prev = mod_get_adjacent_post('prev', array('portfolio'));
+        $next = mod_get_adjacent_post('next', array('portfolio'));
       ?>
 
       <?php if($prev) : ?>
