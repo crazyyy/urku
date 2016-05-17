@@ -5,6 +5,9 @@
  *  Custom functions, support, custom post types and more.
  */
 
+include_once( get_stylesheet_directory() . '/advanced-custom-fields/acf.php' );
+include_once( get_stylesheet_directory() . '/acf-repeater/acf-repeater.php' );
+
 //  Enable styles for WP admin panel
 add_action('admin_enqueue_scripts', 'wpeAdminThemeStyle');
 function wpeAdminThemeStyle() {
@@ -670,7 +673,5 @@ function disable_emojicons_tinymce( $plugins ) {
     return array();
   }
 }
-
-
 
 ?>
