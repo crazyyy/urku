@@ -19,3 +19,16 @@
     @extend .rk-menu__link;
   }
 }
+.rk-comment__avatar {
+  width: 63px;
+  img {
+    width: 100%;
+
+    border-radius: 50%;
+  }
+}
+.comment-reply-link {
+  @extend .ae-u-bold;
+  @extend .arrow-button;
+  @extend .arrow-button--compress;
+}

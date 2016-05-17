@@ -93,85 +93,9 @@
       </div>
     </div>
   </section>
-  <ul class="ae-container-fluid ae-container-fluid--inner rk-comments">
-    <h3 class="rk-comments__title ae-u-bolder">3 Comments</h3>
-    <li>
-      <article class="rk-comment">
-        <aside class="rk-comment__avatar"><img src="<?php echo get_template_directory_uri(); ?>/img/user-1.jpg" alt="" class="rk-comment__avatar au-circle"></aside>
-        <div class="rk-comment__content">
-          <header class="rk-comment__header">
-            <h5 class="rk-comment__author ae-u-bolder"><a href="#0">Michael Smith</a><small class="ae-u-regular">&nbsp; (Author)</small></h5>
-            <div class="rk-comment__meta">
-              <p class="ae-kappa">&nbsp; at <a href="#0">14:30 pm </a><a href="#0">July 4, 2015</a></p>
-            </div>
-          </header>
-          <div class="rk-comment__body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-          </div>
-          <div class="rk-comment__actions ae-kappa"><a href="#0" class="ae-u-bold arrow-button arrow-button--compress">Reply
-              <svg>
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#refresh"></use>
-              </svg></a></div>
-        </div>
-      </article>
-      <ul>
-        <li>
-          <article class="rk-comment">
-            <aside class="rk-comment__avatar"><img src="<?php echo get_template_directory_uri(); ?>/img/user-2.jpg" alt="" class="rk-comment__avatar au-circle"></aside>
-            <div class="rk-comment__content">
-              <header class="rk-comment__header">
-                <h5 class="rk-comment__author ae-u-bolder"><a href="#0">Anna Watson</a></h5>
-                <div class="rk-comment__meta">
-                  <p class="ae-kappa">&nbsp; at <a href="#0">14:30 pm </a><a href="#0">July 4, 2015</a></p>
-                </div>
-              </header>
-              <div class="rk-comment__body">
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-              </div>
-              <div class="rk-comment__actions ae-kappa"><a href="#0" class="ae-u-bold arrow-button arrow-button--compress">Reply
-                  <svg>
-                    <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#refresh"></use>
-                  </svg></a></div>
-            </div>
-          </article>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <article class="rk-comment">
-        <aside class="rk-comment__avatar"><img src="<?php echo get_template_directory_uri(); ?>/img/user-3.jpg" alt="" class="rk-comment__avatar au-circle"></aside>
-        <div class="rk-comment__content">
-          <header class="rk-comment__header">
-            <h5 class="rk-comment__author ae-u-bolder"><a href="#0">Arthur Hawk</a></h5>
-            <div class="rk-comment__meta">
-              <p class="ae-kappa">&nbsp; at <a href="#0">14:30 pm </a><a href="#0">July 4, 2015</a></p>
-            </div>
-          </header>
-          <div class="rk-comment__body">
-            <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli.</p>
-          </div>
-          <div class="rk-comment__actions ae-kappa"><a href="#0" class="ae-u-bold arrow-button arrow-button--compress">Reply
-              <svg>
-                <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#refresh"></use>
-              </svg></a></div>
-        </div>
-      </article>
-    </li>
-    <div class="ae-grid ae-grid--collapse inner-box-3">
-      <div class="ae-grid__item item-lg-8 item-lg--offset-2">
-        <form action="#0" class="ae-form--full">
-          <textarea placeholder="Leave your comment here ..." cols="30" rows="7"></textarea>
-          <input type="text" placeholder="* Name" required>
-          <input type="email" placeholder="* Email" required>
-          <input type="text" placeholder="Website">
-          <div class="au-pt-3 group-buttons"><a href="#0" class="au-mt-2 arrow-button arrow-button--right arrow-button--out">Post Comment<span class="arrow-cont">
-                <svg>
-                  <use xlink:href="<?php echo get_template_directory_uri(); ?>/img/symbols.svg#arrow"></use>
-                </svg></span></a></div>
-        </form>
-      </div>
-    </div>
-  </ul>
+
+  <?php comments_template(); ?>
+
   <section class="ae-container-fluid au-pt-4 au-pb-4">
     <div class="group-buttons au-mt-2"><a href="#0" class="arrow-button arrow-button--reverse">Prev Post
         <div class="arrow-cont arrow-cont-rev">
