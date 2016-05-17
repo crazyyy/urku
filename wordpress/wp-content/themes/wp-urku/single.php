@@ -99,28 +99,26 @@
 
           <?php } else if ( $content_type == 'Content Lists') { ?>
 
+        <?php if( have_rows('block_lists') ): ?>
             <div class="ae-grid ae-grid--alt au-lg-ta-left au-xs-ptp-1">
-              <div class="ae-grid__item--alt item-lg-4">
-                <span class="ae-u-boldest">1.</span>
-                <p>Suspendisse ultricies tellus eget nisl molestie, quis sagittis mauris placerat.</p>
-                <span class="ae-u-boldest">2.</span>
-                <p>Pellentesque et nulla pulvinar, bibendum quam ac, cursus turpis.</p>
-              </div>
-              <div class="ae-grid__item--alt item-lg-4">
-                <span class="ae-u-boldest">3.</span>
-                <p>Sed quam odio, blandit sit amet dapibus id, aliquet sollicitudin enim. </p>
-                <span class="ae-u-boldest">4.</span>
-                <p>Morbi hendrerit laoreet lectus a fringilla.</p>
-              </div>
-              <div class="ae-grid__item--alt item-lg-4">
-                <span class="ae-u-boldest">5.</span>
-                <p>Sed quam odio, blandit sit amet dapibus id, aliquet sollicitudin enim. </p>
-                <span class="ae-u-boldest">6.</span>
-                <p>Morbi hendrerit laoreet lectus a fringilla.</p>
-              </div>
-            </div>
+          <?php $i = 1; ?>
+          <?php while( have_rows('block_lists') ): the_row(); ?>
 
-          <?php } ?>
+            <?php if ($i % 2 == 0) { ?>
+                <span class="ae-u-boldest"><?php echo $i; ?>.</span>
+                <p><?php the_sub_field('item'); ?></p>
+              </div>
+            <?php } else { ?>
+              <div class="ae-grid__item--alt item-lg-4">
+                <span class="ae-u-boldest"><?php echo $i; ?>.</span>
+                <p><?php the_sub_field('item'); ?></p>
+            <?php } ?>
+
+            <?php $i++; ?>
+
+          <?php endwhile; // while( has_sub_field('to-do_lists') ): ?>
+            </div>
+        <?php endif; } ?>
 
         <?php endwhile; endif; ?>
 
